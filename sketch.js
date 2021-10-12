@@ -32,20 +32,22 @@ function setup() {
 
 	//Create the Bodies Here.
 	ball = Bodies.circle(50, 50, 5, ball_options);
-	World.add(ball);
+	World.add(myworld, ball);
 
 	Engine.run(myengine);
 
 	groundObj = new Ground(width/2, height-50, width, 10);
 
-	rightSide = new Ground(width-120, ground-20, 5, 120);
-	leftside = new Ground(rightSide-80, ground-20, 5, 120);
+	rightSide = new Ground(width-120, groundObj-20, 5, 120);
+	leftside = new Ground(rightSide-80, groundObj-20, 5, 120);
 }
 
 
 function draw() {
   rectMode(CENTER);
   background(0);
+
+  Engine.update(myengine);
   
   groundObj.display();
 
@@ -54,7 +56,7 @@ function draw() {
 
   drawSprites();
 
-  keyPressed();
+  //keyPressed();
 }
 
 function keyPressed()
