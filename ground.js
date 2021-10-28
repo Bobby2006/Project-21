@@ -20,6 +20,6 @@ class Ground
     {
         fill("Yellow");
         rectMode(CENTER);
-        rect(this.posX, this.posY, this.width, this.height);
+        rect(this.ground.position.x, this.ground.position.y, this.w, this.h);
     }
 }

@@ -31,15 +31,15 @@ function setup() {
 	myworld = myengine.world;
 
 	//Create the Bodies Here.
-	ball = Bodies.circle(50, 50, 5, ball_options);
+	ball = Bodies.circle(width/2 + 60, 50, 30, ball_options);
 	World.add(myworld, ball);
 
 	Engine.run(myengine);
 
 	groundObj = new Ground(width/2, height-50, width, 10);
 
-	rightSide = new Ground(width-120, groundObj-20, 5, 120);
-	leftside = new Ground(rightSide-80, groundObj-20, 5, 120);
+	rightSide = new Ground(width-120, 746-20, 12, 80);
+	leftside = new Ground(width-280, 746-20, 12, 80);
 }
 
 
@@ -48,21 +48,23 @@ function draw() {
   background(0);
 
   Engine.update(myengine);
+
+  ellipse(ball.position.x, ball.position.y, 30, 30);
   
   groundObj.display();
 
   rightSide.display();
   leftside.display();
 
-  drawSprites();
-
   //keyPressed();
+
+  drawSprites();
 }
 
 function keyPressed()
 {
-	if(keyCode == UP_ARROW)
+	if(keyCode == 32)
 	{
-		Body.applyForce(ball, {x:-6,y:0}, {x:0,y:0});
+		Body.applyForce(ball, {x:0,y:0}, {x:120,y:-100});
 	}
 }
